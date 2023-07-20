@@ -1,9 +1,269 @@
 nav {
   width: 100vw;
-  height: 5rem;
-  background-color: #fff;
-  border: 2px solid black;
+  height: 100%;
+  background-color: transparent;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+
+.nav-right,
+.nav-left {
+  display: flex;
+}
+
+.nav-right,
+.nav-left {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-left {
+  border-bottom: none;
+}
+
+.nav-left-links {
+  display: none;
+}
+
+.nav-left-links li {
+  cursor: pointer;
+}
+
+.nav-left-links li:hover {
+  color: #232323;
+}
+
+.link-down-icon {
+  margin-top: 1rem;
+}
+
+.nav-logo {
+  position: relative;
+  width: 100%;
+  height: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.nav-menu-icon {
+  font-size: 1.75rem;
+  color: grey;
+}
+
+.nav-logo-img img {
+  width: 9rem;
+  height: 1.5rem;
+}
+
+.nav-shop-link,
+.nav-pages-link {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  width: 50vw;
+  top: 3rem;
+  left: -7rem;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.nav-dropdown-content-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.nav-dropdown-content {
+  width: 100%;
+}
+
+.nav-dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  font-size: 1rem;
+  text-decoration: none;
+  display: block;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.nav-dropdown-heading {
+  font-size: 1.1rem;
+  padding: 0.5rem 0.5rem;
+}
+
+.nav-shop-link:hover .nav-dropdown {
+  display: block;
+}
+
+.nav-pages-link:hover .nav-dropdown {
+  display: block;
+}
+
+.nav-pages-link .nav-dropdown {
+  width: 10rem;
+  left: 0;
+}
+
+/* --------------Navbar Right-------------------- */
+
+.nav-right {
+  justify-content: flex-end;
+  padding: 0 0.5rem;
+}
+
+.nav-right li {
+  font-size: 1.75rem;
+  padding: 0.5rem;
+}
+
+.nav-right li:nth-child(1) {
+  border-left: none;
+}
+
+.nav-cart-logo-container {
+  position: relative;
+}
+
+.cart-item-count {
+  position: absolute;
+  top: -13px;
+  right: -17px;
+  color: #232323;
+  font-size: 1rem;
+}
+
+.nav-search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-search-icon {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.nav-search-input {
+  width: 50%;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  padding: 0.5rem;
+  transition: 1s ease-in-out;
+}
+
+.nav-search-input:focus {
+  width: 100%;
+}
+
+.nav-search-input:focus {
+  outline: none;
+  border-color: #719ece;
+  box-shadow: 0 0 10px #719ece;
+}
+
+@media screen and (min-width: 768px) {
+  nav {
+    height: 5rem;
+    flex-direction: row;
+    padding: 0 1.5rem;
+  }
+
+  .nav-left {
+    width: 20rem;
+    height: 100%;
+    border: none;
+    align-items: center;
+  }
+
+  .nav-right {
+    width: 25rem;
+    height: 100%;
+    border: none;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-right li:nth-child(1) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .nav-search-input {
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    border: none;
+  }
+
+  .nav-right li {
+    width: 30%;
+    text-align: center;
+  }
+
+  .cart-item-count {
+    right: -22px;
+    font-weight: 600;
+    font-size: 1.15rem;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .nav-logo-img img {
+    width: 11rem;
+    height: 2rem;
+  }
+  .nav-left-links {
+    display: block;
+  }
+
+  .nav-menu-icon {
+    display: none;
+  }
+
+  .nav-left {
+    width: 45%;
+  }
+
+  .nav-right {
+    width: 50%;
+  }
+
+  .nav-logo-img {
+    padding: 0;
+  }
+
+  .nav-left-links {
+    width: 250%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-left-links li {
+    color: #787878;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .cart-item-count {
+    right: -32px;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: blueviolet;
+  }
 }

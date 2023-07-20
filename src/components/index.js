@@ -1,9 +1,21 @@
 import Navbar from './Navbar';
-import Pages from './Pages';
 import Contact from './Contact';
 import Footer from './Footer';
-import Cart from './cart/Cart';
 import Authentication from './Authentication';
 import LikedItem from './LikedItem';
+import Shop from './Shop';
+import Cart from './cart/Cart';
+import Product from './product/Product';
+import Home from './Home';
 
-export { Navbar, Pages, Contact, Footer, Cart, Authentication, LikedItem };
+export {
+  Home,
+  Shop,
+  Navbar,
+  Cart,
+  Product,
+  Contact,
+  Footer,
+  Authentication,
+  LikedItem,
+};
