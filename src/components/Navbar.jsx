@@ -64,7 +64,7 @@ const Navbar = () => {
               <div className='nav-dropdown-content'>
                 {pagesDropdown.map((item, index) => (
                   <Link to={item.to} key={index}>
-                    {item.name}{' '}
+                    {item.name}
                   </Link>
                 ))}
               </div>

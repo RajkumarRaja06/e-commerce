@@ -1,17 +1,20 @@
-import { productHeader } from '../../constants';
+import { Link } from 'react-router-dom';
 
-const ProductHeader = () => {
+const ProductHeader = ({ productHeader }) => {
   return (
     <div className='product-header-container'>
-      {productHeader.map(({ name, img }) => {
+      {productHeader.map(({ name, img, to }, index) => {
         return (
           <div
+            key={index}
             className='product-header'
             style={{
               backgroundImage: `url(${img})`,
             }}
           >
-            <div>{name}</div>
+            <Link to='shop'>
+              <div>{name}</div>
+            </Link>
           </div>
         );
       })}

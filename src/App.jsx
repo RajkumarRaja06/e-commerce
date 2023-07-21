@@ -1,12 +1,4 @@
-import {
-  Home,
-  Shop,
-  Contact,
-  Authentication,
-  LikedItem,
-  Cart,
-  Product,
-} from './components';
+import { Home, Product } from './components';
 
 const App = () => {
   return (

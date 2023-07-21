@@ -2,17 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Product } from './components';
+import { CartProvider } from './context/cartContext';
+
+import App from './App';
 import {
-  Home,
+  Root,
+  ErrorPage,
   Shop,
   Contact,
   Authentication,
   LikedItem,
   Cart,
-  Product,
-} from './components';
-import App from './App';
-import { Root, ErrorPage } from './routes';
+} from './routes';
 
 const router = createBrowserRouter([
   {
@@ -58,6 +60,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
   </React.StrictMode>
 );

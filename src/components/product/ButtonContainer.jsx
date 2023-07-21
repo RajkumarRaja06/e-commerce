@@ -1,12 +1,15 @@
-import { buttonCategories } from '../../constants';
-
-const ButtonContainer = () => {
+const ButtonContainer = ({ categories, filteredData }) => {
+  const clickHandler = (name) => {
+    filteredData(name);
+  };
   return (
     <div className='buttonContainer'>
       <h1>New Arrivals</h1>
       <div className='btn-categories'>
-        {buttonCategories.map((button) => (
-          <button type='button'>{button}</button>
+        {categories.map((name, index) => (
+          <button type='button' key={index} onClick={() => clickHandler(name)}>
+            {name}
+          </button>
         ))}
       </div>
     </div>

@@ -1,30 +1,44 @@
 import '../../styles/product/singleProduct.css';
-import img from '../../../public/assets/singleProduct1.webp';
 import { TiHeartOutline } from 'react-icons/ti';
 import { AiOutlineEye } from 'react-icons/ai';
 import { TbShoppingCart } from 'react-icons/tb';
 
-const SingleProduct = () => {
+const SingleProduct = ({ data }) => {
   return (
-    <div className='singleProduct'>
-      <div className='product-img'>
-        <img src={img} alt='Image' />
-        <div className='singleProduct-icon'>
-          <span className='heart-icon'>
-            <TiHeartOutline />
-          </span>
-          <span className='eye-icon'>
-            <AiOutlineEye />
-          </span>
-          <span className='singleProduct-cart-icon'>
-            <TbShoppingCart />
-          </span>
-        </div>
-      </div>
-      <div className='product-data'>
-        <div>Fujifilm X100T 16 MP Digital Camera (Silver)</div>
-        <p>$55555</p>
-      </div>
+    <div className='product-container'>
+      {data.map((item, index) => {
+        const { name, img, price } = item;
+        return (
+          <div className='singleProduct' key={index}>
+            <div className='product-img'>
+              <img src={img} alt={name} />
+              <span className='heart-icon'>
+                <TiHeartOutline />
+              </span>
+            </div>
+
+            <span className='eye-icon'>
+              <AiOutlineEye />
+            </span>
+
+            <div className='product-data'>
+              <div>{name}</div>
+              <p>${price}</p>
+            </div>
+
+            <div className='singleProduct-addCart-btn'>
+              <button>
+                <span className='singleProduct-cart-icon'>
+                  <TbShoppingCart />
+                </span>
+                <span className='singleProduct-addCart-btn-name'>
+                  Add to Cart
+                </span>
+              </button>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };
