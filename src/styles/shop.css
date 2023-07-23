@@ -1,0 +1,102 @@
+.shop {
+  display: flex;
+  gap: 3rem;
+}
+
+.productCategory {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.shotProduct {
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+  width: 13rem;
+  margin-top: 2rem;
+  border: solid 1px #ecedee;
+  text-transform: capitalize;
+}
+
+.shotProduct option {
+  text-align: left;
+  width: 100%;
+  display: block;
+  border: none;
+  background-color: transparent;
+  font-size: 1.1rem;
+  padding: 0.75rem;
+  text-transform: capitalize;
+}
+
+/* Product Category Button */
+
+/* Button Container */
+.CategoryButton {
+  width: 17rem;
+  margin: 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 1.5rem;
+}
+
+.CategoryButton h1 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding-bottom: 1rem;
+}
+
+.shop-btn-categories {
+  margin: 1rem auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-btn-categories button {
+  border: none;
+  background-color: transparent;
+  text-align: left;
+  height: 40px;
+  min-width: 80px;
+  font-size: 1rem;
+  transition: 1s ease-in-out;
+  cursor: pointer;
+  margin: 0.5rem 0;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+}
+
+.shop-btn-icon {
+  display: none;
+}
+
+.shop-btn-categories button:hover {
+  color: #fe4c50;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.shop-btn-categories button:focus {
+  color: #fe4c50;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.shop-btn-categories button:focus .shop-btn-icon {
+  display: inline-block;
+  color: #fe4c50;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 768px) {
+  .CategoryButton h1 {
+    font-size: 1.5rem;
+  }
+  .shop-btn-categories button {
+    font-size: 1.2rem;
+  }
+}

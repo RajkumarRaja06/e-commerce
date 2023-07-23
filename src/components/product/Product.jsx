@@ -4,7 +4,6 @@ import ButtonContainer from './ButtonContainer';
 import SingleProduct from './SingleProduct';
 import { useState } from 'react';
 import { productData, productHeader } from '../../constants';
-import { removeDuplicate } from '../../utils/product';
 
 const Product = () => {
   const [data, setData] = useState(productData);
@@ -19,10 +18,7 @@ const Product = () => {
   // };
   // randomNumberInRange();
 
-  const buttonCategories = [
-    'all',
-    ...removeDuplicate(productData.map((item) => item.categories)),
-  ];
+  const buttonCategories = ['all', "men's", "women's", 'accessories'];
 
   const filteredData = (name) => {
     if (name === 'all') {

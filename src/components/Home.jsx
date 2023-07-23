@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
+import { Link } from 'react-router-dom';
+
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -32,7 +34,9 @@ const Home = () => {
             <div className='home-slider1-content'>
               <h6>SPRING / SUMMER COLLECTION 2017</h6>
               <h1>Get up to 30% Off New Arrivals</h1>
-              <button type='button'>SHOP NOW</button>
+              <Link to='shop'>
+                <button type='button'>SHOP NOW</button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -47,7 +51,9 @@ const Home = () => {
                 <h3>75% Off</h3>
               </div>
               <h1>IT’S HAPPENING THIS SEASON!</h1>
-              <button type='button'>PURCHASE NOW</button>
+              <Link to='shop'>
+                <button type='button'>PURCHASE NOW</button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -63,7 +69,9 @@ const Home = () => {
               </div>
               <h1>Winter Collection</h1>
               <p>Best Cloth Collection By 2020!</p>
-              <button type='button'>Shop NOW</button>
+              <Link to='shop'>
+                <button type='button'>Shop NOW</button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>

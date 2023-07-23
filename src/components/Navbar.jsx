@@ -25,34 +25,8 @@ const Navbar = () => {
         </div>
         <ul className='nav-left-links'>
           <li className='nav-shop-link'>
-            <div>Shop</div>
-            <span className='link-down-icon'>
-              <FiChevronDown />
-            </span>
-            <div className='nav-dropdown'>
-              <div className='nav-dropdown-content-container'>
-                <div className='nav-dropdown-content'>
-                  <h3 className='nav-dropdown-heading'>Men's Collections</h3>
-                  <Link to='product'>T shirt</Link>
-                  <Link to='product'>Polo</Link>
-                  <Link to='product'>Shirts</Link>
-                  <Link to='product'>Jackets</Link>
-                </div>
-                <div className='nav-dropdown-content'>
-                  <h3 className='nav-dropdown-heading'>Men's Collections</h3>
-                  <Link to='product'>T shirt</Link>
-                  <Link to='product'>Polo</Link>
-                  <Link to='product'>Shirts</Link>
-                  <Link to='product'>Jackets</Link>
-                </div>
-                <div className='nav-dropdown-content'>
-                  <h3 className='nav-dropdown-heading'>Men's Collections</h3>
-                  <Link to='product'>T shirt</Link>
-                  <Link to='product'>Polo</Link>
-                  <Link to='product'>Shirts</Link>
-                  <Link to='product'>Jackets</Link>
-                </div>
-              </div>
+            <div>
+              <Link to='shop'>Shop</Link>
             </div>
           </li>
           <li className='nav-pages-link'>

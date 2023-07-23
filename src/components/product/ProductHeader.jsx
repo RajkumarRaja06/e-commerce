@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const ProductHeader = ({ productHeader }) => {
   return (
     <div className='product-header-container'>
-      {productHeader.map(({ name, img, to }, index) => {
+      {productHeader.map(({ name, img }, index) => {
         return (
           <div
             key={index}

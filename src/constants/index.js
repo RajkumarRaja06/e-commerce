@@ -53,52 +53,53 @@ import a13 from '../../public/assets/accessories/a13.webp';
 import a14 from '../../public/assets/accessories/a14.webp';
 import a15 from '../../public/assets/accessories/a15.webp';
 
-const shopDropdown = [
-  {
-    name: "Men's Collection",
-    link: [
-      { name: 'T-Shirts', to: '/product' },
-      { name: 'Polo', to: '/product' },
-      { name: 'Shirts', to: '/product' },
-      { name: 'Jackets', to: '/product' },
-    ],
-  },
-  {
-    name: "Kid's Collection",
-    link: [
-      { name: 'Dresses', to: '/product' },
-      { name: 'Shirts', to: '/product' },
-      { name: 'T-Shirts', to: '/product' },
-      { name: 'Lowers', to: '/product' },
-    ],
-  },
-  {
-    name: "Women's Collection",
-    link: [
-      { name: 'Dresses', to: '/product' },
-      { name: 'Blouses & Shirts', to: '/product' },
-      { name: 'T-Shirts', to: '/product' },
-      { name: 'Rompers', to: '/product' },
-    ],
-  },
-];
+// Woods
+import c1 from '../../public/assets/woods/c1.webp';
+import c2 from '../../public/assets/woods/c2.webp';
+import c3 from '../../public/assets/woods/c3.webp';
+import c4 from '../../public/assets/woods/c4.webp';
+import c5 from '../../public/assets/woods/c5.webp';
+import c6 from '../../public/assets/woods/c6.webp';
+import c7 from '../../public/assets/woods/c7.webp';
+import c8 from '../../public/assets/woods/c8.webp';
+import c9 from '../../public/assets/woods/c9.webp';
+import c10 from '../../public/assets/woods/c10.webp';
+
+// Refrigerators
+import r1 from '../../public/assets/refrigerators/r1.webp';
+import r2 from '../../public/assets/refrigerators/r2.webp';
+import r3 from '../../public/assets/refrigerators/r3.webp';
+import r4 from '../../public/assets/refrigerators/r4.webp';
+import r5 from '../../public/assets/refrigerators/r5.webp';
+import r6 from '../../public/assets/refrigerators/r6.webp';
+import r7 from '../../public/assets/refrigerators/r7.webp';
+import r8 from '../../public/assets/refrigerators/r8.webp';
+import r9 from '../../public/assets/refrigerators/r9.webp';
+import r10 from '../../public/assets/refrigerators/r10.webp';
 
 const pagesDropdown = [
-  { name: 'Home', to: '/home' },
-  { name: 'Shop', to: '/shop' },
-  { name: 'Product Details', to: '/product' },
-  { name: 'Checkout', to: '/cart' },
-  { name: 'Regular Pages', to: '/pages' },
-  { name: 'Contact', to: '/contact' },
+  { name: 'Home', to: '' },
+  { name: 'Shop', to: 'shop' },
+  { name: 'Product Details', to: 'product' },
+  { name: 'Checkout', to: 'cart' },
+  { name: 'Regular Pages', to: 'pages' },
+  { name: 'Contact', to: 'contact' },
 ];
 
 const productHeader = [
-  { name: "Men's", img: proHeader1, to: '/shop' },
-  { name: 'Accessories', img: proHeader2, to: '/shop' },
-  { name: "Women's", img: proHeader3, to: '/shop' },
+  { name: "Men's", img: proHeader1, to: 'shop' },
+  { name: 'Accessories', img: proHeader2, to: 'shop' },
+  { name: "Women's", img: proHeader3, to: 'shop' },
 ];
 
 const buttonCategories = ['all', "men's", 'accessories', "women's"];
+
+const shortDropdown = [
+  'default shorting',
+  'lowest price',
+  'highest price',
+  'product name',
+];
 
 const productData = [
   {
@@ -418,6 +419,148 @@ const productData = [
     price: 150,
     images: [w6, w8, w14],
   },
+
+  {
+    categories: 'woods',
+    name: 'Green Dress with details',
+    img: c1,
+    price: 350,
+    images: [w2, w7, w15],
+  },
+  {
+    categories: 'woods',
+    name: 'Converse All Star Hi Plimsolls',
+    img: c2,
+    price: 210,
+    images: [w4, w10, w1],
+  },
+  {
+    categories: 'woods',
+    name: 'Mini Silver Mesh Watch',
+    img: c3,
+    price: 150,
+    images: [w6, w8, w14],
+  },
+  {
+    categories: 'woods',
+    name: 'Green Dress with details',
+    img: c4,
+    price: 350,
+    images: [w2, w7, w15],
+  },
+  {
+    categories: 'woods',
+    name: 'Converse All Star Hi Plimsolls',
+    img: c5,
+    price: 210,
+    images: [w4, w10, w1],
+  },
+  {
+    categories: 'woods',
+    name: 'Mini Silver Mesh Watch',
+    img: c6,
+    price: 150,
+    images: [w6, w8, w14],
+  },
+  {
+    categories: 'woods',
+    name: 'Green Dress with details',
+    img: c7,
+    price: 350,
+    images: [w2, w7, w15],
+  },
+  {
+    categories: 'woods',
+    name: 'Converse All Star Hi Plimsolls',
+    img: c8,
+    price: 210,
+    images: [w4, w10, w1],
+  },
+  {
+    categories: 'woods',
+    name: 'Mini Silver Mesh Watch',
+    img: c9,
+    price: 150,
+    images: [w6, w8, w14],
+  },
+  {
+    categories: 'woods',
+    name: 'Green Dress with details',
+    img: c10,
+    price: 350,
+    images: [w2, w7, w15],
+  },
+
+  {
+    categories: 'refrigerators',
+    name: 'Green Dress with details',
+    img: r1,
+    price: 350,
+    images: [w2, w7, w15],
+  },
+  {
+    categories: 'refrigerators',
+    name: 'Converse All Star Hi Plimsolls',
+    img: r2,
+    price: 210,
+    images: [w4, w10, w1],
+  },
+  {
+    categories: 'refrigerators',
+    name: 'Mini Silver Mesh Watch',
+    img: r3,
+    price: 150,
+    images: [w6, w8, w14],
+  },
+  {
+    categories: 'refrigerators',
+    name: 'Green Dress with details',
+    img: r4,
+    price: 350,
+    images: [w2, w7, w15],
+  },
+  {
+    categories: 'refrigerators',
+    name: 'Converse All Star Hi Plimsolls',
+    img: r5,
+    price: 210,
+    images: [w4, w10, w1],
+  },
+  {
+    categories: 'refrigerators',
+    name: 'Mini Silver Mesh Watch',
+    img: r6,
+    price: 150,
+    images: [w6, w8, w14],
+  },
+  {
+    categories: 'refrigerators',
+    name: 'Green Dress with details',
+    img: r7,
+    price: 350,
+    images: [w2, w7, w15],
+  },
+  {
+    categories: 'refrigerators',
+    name: 'Converse All Star Hi Plimsolls',
+    img: r8,
+    price: 210,
+    images: [w4, w10, w1],
+  },
+  {
+    categories: 'refrigerators',
+    name: 'Mini Silver Mesh Watch',
+    img: r9,
+    price: 150,
+    images: [w6, w8, w14],
+  },
+  {
+    categories: 'refrigerators',
+    name: 'Green Dress with details',
+    img: r10,
+    price: 350,
+    images: [w2, w7, w15],
+  },
 ];
 
 const data = [
@@ -454,9 +597,9 @@ const data = [
 export default data;
 
 export {
-  shopDropdown,
   pagesDropdown,
   productHeader,
   buttonCategories,
   productData,
+  shortDropdown,
 };
