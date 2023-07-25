@@ -67,16 +67,16 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to='/authentication'>
-            <LuUser />
-          </Link>
-        </li>
-        <li>
           <Link to='/cart' className='nav-cart-logo-container'>
             <span>
               <HiOutlineShoppingBag />
             </span>
             <span className='cart-item-count'>255</span>
+          </Link>
+        </li>
+        <li>
+          <Link to='/signUp'>
+            <LuUser />
           </Link>
         </li>
       </ul>

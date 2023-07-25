@@ -11,9 +11,10 @@ import {
   ErrorPage,
   Shop,
   Contact,
-  Authentication,
   LikedItem,
   Cart,
+  SignUp,
+  Login,
 } from './routes';
 
 const router = createBrowserRouter([
@@ -35,10 +36,6 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: 'authentication',
-        element: <Authentication />,
-      },
-      {
         path: 'cart',
         element: <Cart />,
       },
@@ -47,12 +44,16 @@ const router = createBrowserRouter([
         element: <LikedItem />,
       },
       {
-        path: 'authentication',
-        element: <Authentication />,
-      },
-      {
         path: 'product',
         element: <Product />,
+      },
+      {
+        path: 'signUp',
+        element: <SignUp />,
+      },
+      {
+        path: 'login',
+        element: <Login />,
       },
     ],
   },
