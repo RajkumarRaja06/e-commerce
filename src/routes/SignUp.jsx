@@ -23,7 +23,10 @@ const SignUp = () => {
         navigate('/login');
       })
       .catch((err) => {
-        console.log('Err', err.message);
+        if (err.code === 'auth/email-already-in-use') {
+          alert('Email already exist');
+          navigate('/login');
+        }
       });
   };
   return (
