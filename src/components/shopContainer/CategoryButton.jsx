@@ -1,8 +1,8 @@
 import { MdOutlineKeyboardDoubleArrowRight } from 'react-icons/md';
-const CategoryButton = ({ categories, filteredData }) => {
-  const clickHandler = (name) => {
-    filteredData(name);
-  };
+import { ShopConsumer } from '../../context/shopContext';
+
+const CategoryButton = ({ categories }) => {
+  const { clickHandler } = ShopConsumer();
   return (
     <div className='CategoryButton'>
       <h1>Product Category</h1>

@@ -4,6 +4,8 @@ import './styles/index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Product } from './components';
 import { CartProvider } from './context/cartContext';
+import { UserProvider } from './context/userContext';
+import { ShopProvider } from './context/shopContext';
 
 import App from './App';
 import {
@@ -61,8 +63,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <CartProvider>
-      <RouterProvider router={router} />
-    </CartProvider>
+    <UserProvider>
+      <ShopProvider>
+        <CartProvider>
+          <RouterProvider router={router} />
+        </CartProvider>
+      </ShopProvider>
+    </UserProvider>
   </React.StrictMode>
 );

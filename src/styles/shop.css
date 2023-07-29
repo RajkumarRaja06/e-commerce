@@ -1,5 +1,6 @@
 .shop {
   display: flex;
+  flex-direction: column;
   gap: 3rem;
 }
 
@@ -90,6 +91,12 @@
   color: #fe4c50;
   font-size: 1.5rem;
   font-weight: 700;
+}
+
+@media screen and (min-width: 475px) {
+  .shop {
+    flex-direction: row;
+  }
 }
 
 @media screen and (min-width: 768px) {

@@ -1,6 +1,8 @@
 import '../../styles/shop.css';
+import { ShopConsumer } from '../../context/shopContext';
 
-const SortProduct = ({ shortDropdown, selectedValue }) => {
+const SortProduct = ({ shortDropdown }) => {
+  const { selectedValue } = ShopConsumer();
   return (
     <select className='shotProduct' onChange={selectedValue}>
       {shortDropdown.map((name, index) => {
