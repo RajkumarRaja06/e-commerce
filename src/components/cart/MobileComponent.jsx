@@ -8,8 +8,7 @@ import CartTotals from './CartTotals';
 import { CartConsumer } from '../../context/cartContext';
 
 const MobileComponent = () => {
-  const { cart, removeItem, increasedItem, decreasedItem, subTotal } =
-    CartConsumer();
+  const { cart, removeItem, increasedItem, decreasedItem } = CartConsumer();
   return (
     <div className='mobile-cart'>
       {cart.map((item) => {
@@ -58,7 +57,7 @@ const MobileComponent = () => {
               </div>
               <div className='cart-table-row'>
                 <h5 className='cart-heading-name'>Subtotal</h5>
-                <p className='cart-subtotal-price'>${subTotal}</p>
+                <p className='cart-subtotal-price'>${price * quantity}</p>
               </div>
             </div>
           </div>

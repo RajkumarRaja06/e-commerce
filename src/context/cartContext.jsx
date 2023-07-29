@@ -1,11 +1,10 @@
 import { createContext, useContext, useReducer, useEffect } from 'react';
 import { cartReducer } from '../utils/reducer/cartReducer';
-import data from '../constants';
 
 const CartContext = createContext();
 
 const initialData = {
-  cart: data,
+  cart: [],
   totalQuantity: 0,
   totalPrice: 0,
   subTotal: 0,

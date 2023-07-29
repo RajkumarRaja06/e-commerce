@@ -6,8 +6,7 @@ import EmptyCart from './EmptyCart';
 import { CartConsumer } from '../../context/cartContext';
 
 const DesktopComponent = () => {
-  const { cart, removeItem, increasedItem, decreasedItem, subTotal } =
-    CartConsumer();
+  const { cart, removeItem, increasedItem, decreasedItem } = CartConsumer();
   return (
     <div className='desktop-cart-container'>
       <div className='desktop-cart'>
@@ -55,7 +54,7 @@ const DesktopComponent = () => {
                 </div>
               </div>
               <div className='desktop-cart-subtotal-price'>
-                <p>${subTotal}</p>
+                <p>${price * quantity}</p>
               </div>
             </div>
           );

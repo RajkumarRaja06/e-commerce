@@ -8,8 +8,10 @@ import { LuUser } from 'react-icons/lu';
 import { FiChevronDown } from 'react-icons/fi';
 import { pagesDropdown } from '../constants';
 import logo from '../../public/assets/shop.jpg';
+import { CartConsumer } from '../context/cartContext';
 
 const Navbar = () => {
+  const { totalQuantity } = CartConsumer();
   return (
     <nav>
       <div className='nav-left'>
@@ -71,7 +73,7 @@ const Navbar = () => {
             <span>
               <HiOutlineShoppingBag />
             </span>
-            <span className='cart-item-count'>255</span>
+            <span className='cart-item-count'>{totalQuantity}</span>
           </Link>
         </li>
         <li>
