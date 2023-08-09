@@ -12,12 +12,16 @@ const cartReducer = (state, action) => {
       return { ...state, cart: filteredItems };
 
     case 'INCREASED_ITEM':
+      console.log('Hit');
       const newCartItems = productData.filter(
         (item) => item.id === action.payload.id
       );
       const existingItem = state.cart.find(
         (item) => item.id === newCartItems[0].id
       );
+
+      console.log(existingItem);
+
       if (!existingItem) {
         state.cart.push({
           id: newCartItems[0].id,
