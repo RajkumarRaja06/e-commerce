@@ -12,26 +12,26 @@ const cartReducer = (state, action) => {
       return { ...state, cart: filteredItems };
 
     case 'INCREASED_ITEM':
-      console.log('Hit');
-      const newCartItems = productData.filter(
+      const productToAdd = productData.find(
         (item) => item.id === action.payload.id
       );
+
       const existingItem = state.cart.find(
-        (item) => item.id === newCartItems[0].id
+        (item) => item.id === productToAdd.id
       );
 
-      console.log(existingItem);
-
-      if (!existingItem) {
-        state.cart.push({
-          id: newCartItems[0].id,
-          quantity: newCartItems[0].quantity + 1,
-          name: newCartItems[0].name,
-          price: newCartItems[0].price,
-          img: newCartItems[0].img,
-        });
+      if (existingItem) {
+        const updatedCart = state.cart.map((cartItem) =>
+          cartItem.id === productToAdd.id
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+        return { ...state, cart: updatedCart };
       } else {
-        existingItem.quantity++;
+        console.log(state.cart);
+        //return new array with modifies cartItems / new cart item
+        const updatedCart = [...state.cart, { ...productToAdd, quantity: 1 }];
+        return { ...state, cart: updatedCart };
       }
 
     case 'DECREASED_ITEM':
