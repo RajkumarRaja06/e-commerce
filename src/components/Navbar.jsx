@@ -9,9 +9,16 @@ import { FiChevronDown } from 'react-icons/fi';
 import { pagesDropdown } from '../constants';
 import logo from '../../public/assets/shop.jpg';
 import { CartConsumer } from '../context/cartContext';
+import { useState } from 'react';
 
 const Navbar = () => {
   const { totalQuantity } = CartConsumer();
+  const [isLogIn, setIsLogIn] = useState(true);
+
+  const changeLogInBtn = () => {
+    setIsLogIn()
+  };
+
   return (
     <nav>
       <div className='nav-left'>
@@ -76,11 +83,17 @@ const Navbar = () => {
             <span className='cart-item-count'>{totalQuantity}</span>
           </Link>
         </li>
-        <li>
-          <Link to='/signUp'>
-            <LuUser />
-          </Link>
-        </li>
+        {isLogIn ? (
+          <li>
+            <Link to='/signUp'>
+              <LuUser />
+            </Link>
+          </li>
+        ) : (
+          <li>
+            <button>Log out</button>
+          </li>
+        )}
       </ul>
     </nav>
   );
