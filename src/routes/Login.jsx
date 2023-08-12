@@ -5,8 +5,10 @@ import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
+import { UserConsumer } from '../context/userContext';
 
 const Login = () => {
+  const { setAccessToken } = UserConsumer();
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -16,7 +18,10 @@ const Login = () => {
 
     await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.userCredential;
+        const user = userCredential.user;
+        setAccessToken(user.accessToken);
+        localStorage.setItem('user', JSON.stringify(user.accessToken));
+        console.log();
         setEmail('');
         setPassword('');
         navigate('/');

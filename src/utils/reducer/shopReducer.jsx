@@ -60,6 +60,18 @@ const shopReducer = (state, action) => {
       });
       return { state, products: refrigeratorsArray };
 
+    case 'filter':
+      const keyword = action.payload.e.target.value;
+
+      if (keyword !== '') {
+        const results = productData.filter((user) => {
+          return user.name.toLowerCase().startsWith(keyword.toLowerCase());
+        });
+        return { state, products: results };
+      } else {
+        return { state, products: productData };
+      }
+
     default:
       return { state };
   }

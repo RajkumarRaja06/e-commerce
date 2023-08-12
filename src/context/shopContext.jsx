@@ -21,8 +21,14 @@ const ShopProvider = ({ children }) => {
     dispatch({ type: `${name}` });
   };
 
+  const filter = (e) => {
+    dispatch({ type: 'filter', payload: { e: e } });
+  };
+
   return (
-    <ShopContext.Provider value={{ ...state, selectedValue, clickHandler }}>
+    <ShopContext.Provider
+      value={{ ...state, selectedValue, clickHandler, filter }}
+    >
       {children}
     </ShopContext.Provider>
   );

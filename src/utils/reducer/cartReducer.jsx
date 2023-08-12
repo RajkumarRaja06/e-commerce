@@ -28,8 +28,6 @@ const cartReducer = (state, action) => {
         );
         return { ...state, cart: updatedCart };
       } else {
-        console.log(state.cart);
-        //return new array with modifies cartItems / new cart item
         const updatedCart = [...state.cart, { ...productToAdd, quantity: 1 }];
         return { ...state, cart: updatedCart };
       }

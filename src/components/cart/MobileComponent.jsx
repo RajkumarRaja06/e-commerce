@@ -6,6 +6,8 @@ import { HiPlus, HiMinus } from 'react-icons/hi';
 import EmptyCart from './EmptyCart';
 import CartTotals from './CartTotals';
 import { CartConsumer } from '../../context/cartContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MobileComponent = () => {
   const { cart, removeItem, increasedItem, decreasedItem } = CartConsumer();
@@ -63,6 +65,7 @@ const MobileComponent = () => {
           </div>
         );
       })}
+      <ToastContainer />
       <EmptyCart />
       <CartTotals />
     </div>

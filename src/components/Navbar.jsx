@@ -2,21 +2,29 @@ import '../styles/navbar.css';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { LuSearch } from 'react-icons/lu';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { ImCancelCircle } from 'react-icons/im';
+import { BiLogIn } from 'react-icons/bi';
 import { LuUser } from 'react-icons/lu';
 import { FiChevronDown } from 'react-icons/fi';
 import { pagesDropdown } from '../constants';
 import logo from '../../public/assets/shop.jpg';
 import { CartConsumer } from '../context/cartContext';
 import { useState } from 'react';
+import { UserConsumer } from '../context/userContext';
 
 const Navbar = () => {
+  const { accessToken, logOut } = UserConsumer();
   const { totalQuantity } = CartConsumer();
-  const [isLogIn, setIsLogIn] = useState(true);
+  const [isMenu, setIsMenu] = useState(false);
+  const [isMenuList, setIsMenuList] = useState(false);
 
-  const changeLogInBtn = () => {
-    setIsLogIn()
+  const showMenu = () => {
+    setIsMenu(!isMenu);
+    setIsMenuList(!isMenuList);
+  };
+  const hideMenu = () => {
+    setIsMenu(!isMenu);
+    setIsMenuList(!isMenuList);
   };
 
   return (
@@ -29,10 +37,43 @@ const Navbar = () => {
             </Link>
           </h1>
           <div className='nav-menu-icon'>
-            <GiHamburgerMenu />
+            {isMenu ? (
+              <ImCancelCircle onClick={() => showMenu()} />
+            ) : (
+              <GiHamburgerMenu onClick={() => hideMenu()} />
+            )}
           </div>
         </div>
-        <ul className='nav-left-links'>
+        {isMenuList && (
+          <ul className='nav-left-links'>
+            <li className='nav-shop-link'>
+              <div onClick={() => hideMenu()}>
+                <Link to='shop'>Shop</Link>
+              </div>
+            </li>
+            <li className='nav-pages-link'>
+              <div>Pages</div>
+              <span className='link-down-icon'>
+                <FiChevronDown />
+              </span>
+              <div className='nav-dropdown'>
+                <div className='nav-dropdown-content'>
+                  {pagesDropdown.map((item, index) => (
+                    <Link to={item.to} key={index} onClick={() => hideMenu()}>
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </li>
+            <li>
+              <Link to='/contact' onClick={() => hideMenu()}>
+                Contact
+              </Link>
+            </li>
+          </ul>
+        )}
+        <ul className='nav-left-links-desktop'>
           <li className='nav-shop-link'>
             <div>
               <Link to='shop'>Shop</Link>
@@ -53,28 +94,13 @@ const Navbar = () => {
               </div>
             </div>
           </li>
-          <li>
+          <li className='nav-contact'>
             <Link to='/contact'>Contact</Link>
           </li>
         </ul>
       </div>
 
       <ul className='nav-right'>
-        <li className='nav-search-container'>
-          <span className='nav-search-icon'>
-            <LuSearch />
-          </span>
-          <input
-            type='search'
-            className='nav-search-input'
-            placeholder='Type for search'
-          />
-        </li>
-        <li>
-          <Link to='/likedItem'>
-            <AiOutlineHeart />
-          </Link>
-        </li>
         <li>
           <Link to='/cart' className='nav-cart-logo-container'>
             <span>
@@ -83,15 +109,18 @@ const Navbar = () => {
             <span className='cart-item-count'>{totalQuantity}</span>
           </Link>
         </li>
-        {isLogIn ? (
+        {!accessToken ? (
           <li>
             <Link to='/signUp'>
               <LuUser />
             </Link>
           </li>
         ) : (
-          <li>
-            <button>Log out</button>
+          <li className='login-info' onClick={logOut}>
+            <h5>Log out</h5>
+            <span>
+              <BiLogIn />
+            </span>
           </li>
         )}
       </ul>

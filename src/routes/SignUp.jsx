@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -26,6 +28,7 @@ const SignUp = () => {
         if (err.code === 'auth/email-already-in-use') {
           alert('Email already exist');
           navigate('/login');
+          toast.warning('Email already exist');
         }
       });
   };
@@ -82,6 +85,7 @@ const SignUp = () => {
           </span>
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 };

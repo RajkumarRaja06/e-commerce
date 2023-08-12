@@ -11,8 +11,11 @@ const Footer = () => {
       <p className='footer_para'>
         ©2023 All Rights Reserverd. This template is made with by{' '}
         <span>
-          <Link to='https://eloquent-pie-3edde5.netlify.app/' target='_blank'>
-            RajKumarRaja
+          <Link
+            to='https://rajkumarraja-portfolio.netlify.app/'
+            target='_blank'
+          >
+            ❤️ RajKumarRaja
           </Link>
         </span>
       </p>

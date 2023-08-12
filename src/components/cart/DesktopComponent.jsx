@@ -4,6 +4,8 @@ import { HiPlus, HiMinus } from 'react-icons/hi';
 import CartTotals from './CartTotals';
 import EmptyCart from './EmptyCart';
 import { CartConsumer } from '../../context/cartContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DesktopComponent = () => {
   const { cart, removeItem, increasedItem, decreasedItem } = CartConsumer();
@@ -59,6 +61,7 @@ const DesktopComponent = () => {
             </div>
           );
         })}
+        <ToastContainer />
         <EmptyCart />
       </div>
       <CartTotals />

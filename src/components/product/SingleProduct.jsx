@@ -3,6 +3,8 @@ import { TiHeartOutline } from 'react-icons/ti';
 import { AiOutlineEye } from 'react-icons/ai';
 import { TbShoppingCart } from 'react-icons/tb';
 import { CartConsumer } from '../../context/cartContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SingleProduct = ({ data }) => {
   const { increasedItem } = CartConsumer();
@@ -15,14 +17,7 @@ const SingleProduct = ({ data }) => {
           <div className='singleProduct' key={id}>
             <div className='product-img'>
               <img src={img} alt={name} />
-              <span className='heart-icon'>
-                <TiHeartOutline />
-              </span>
             </div>
-
-            <span className='eye-icon'>
-              <AiOutlineEye />
-            </span>
 
             <div className='product-data'>
               <div>{name}</div>
@@ -42,6 +37,7 @@ const SingleProduct = ({ data }) => {
           </div>
         );
       })}
+      <ToastContainer />
     </div>
   );
 };

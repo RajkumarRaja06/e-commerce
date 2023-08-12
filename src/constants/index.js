@@ -84,7 +84,6 @@ const pagesDropdown = [
   { name: 'Shop', to: 'shop' },
   { name: 'Product Details', to: 'product' },
   { name: 'Checkout', to: 'cart' },
-  { name: 'Regular Pages', to: 'pages' },
   { name: 'Contact', to: 'contact' },
 ];
 
@@ -105,7 +104,7 @@ const shortDropdown = [
 
 const productData = [
   {
-    id: uuidv4(),
+    id: 1,
     categories: "women's",
     name: 'Pieces Metallic Printed',
     img: w1,
@@ -241,7 +240,7 @@ const productData = [
   },
 
   {
-    id: uuidv4(),
+    id: 2,
     categories: "men's",
     name: 'Herschel supply',
     img: m1,
@@ -549,7 +548,7 @@ const productData = [
     quantity: 0,
   },
   {
-    id: uuidv4(),
+    id: 3,
     categories: 'woods',
     name: 'Converse All Star Hi Plimsolls',
     img: c5,
@@ -697,32 +696,40 @@ const productData = [
 
 const data = [
   {
-    id: uuidv4(),
-    name: 'Student Table',
-    price: 10,
-    quantity: 1,
+    id: 1,
+    categories: "women's",
+    name: 'Pieces Metallic Printed',
     img: w1,
+    price: 210,
+    images: [w4, w10, w1],
+    quantity: 4,
   },
   {
-    id: uuidv4(),
-    name: 'Harleston Armchair',
-    price: 150,
-    quantity: 1,
+    id: 2,
+    categories: "men's",
+    name: 'Herschel supply',
     img: m1,
+    price: 210,
+    images: [w4, w10, w1],
+    quantity: 1,
   },
   {
-    id: uuidv4(),
-    name: 'Cup',
-    price: 100,
-    quantity: 1,
-    img: a5,
+    id: 3,
+    categories: 'refrigerators',
+    name: 'Converse All Star Hi Plimsolls',
+    img: r8,
+    price: 210,
+    images: [w4, w10, w1],
+    quantity: 2,
   },
   {
-    id: uuidv4(),
-    name: 'Chair',
-    price: 50,
-    quantity: 1,
-    img: m6,
+    id: 4,
+    categories: 'woods',
+    name: 'Converse All Star Hi Plimsolls',
+    img: c5,
+    price: 210,
+    images: [w4, w10, w1],
+    quantity: 2,
   },
 ];
 
