@@ -603,7 +603,7 @@ const productData = [
   },
 
   {
-    id: uuidv4(),
+    id: 3,
     categories: 'refrigerators',
     name: 'Green Dress with details',
     img: r1,
