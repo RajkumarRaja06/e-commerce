@@ -61,10 +61,10 @@ const DesktopComponent = () => {
             </div>
           );
         })}
-        <ToastContainer />
-        <EmptyCart />
+        {cart.length > 0 && <EmptyCart />}
       </div>
       <CartTotals />
+      <ToastContainer />
     </div>
   );
 };

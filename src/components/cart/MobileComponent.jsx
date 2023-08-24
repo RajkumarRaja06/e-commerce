@@ -65,9 +65,9 @@ const MobileComponent = () => {
           </div>
         );
       })}
-      <ToastContainer />
-      <EmptyCart />
+      {cart.length > 0 && <EmptyCart />}
       <CartTotals />
+      <ToastContainer />
     </div>
   );
 };

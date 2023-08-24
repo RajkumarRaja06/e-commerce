@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
+import { ShopConsumer } from '../../context/shopContext';
 
 const ProductHeader = ({ productHeader }) => {
+  const { clickHandler } = ShopConsumer();
+
   return (
     <div className='product-header-container'>
-      {productHeader.map(({ name, img }, index) => {
+      {productHeader.map(({ name, img, category }, index) => {
         return (
           <div
             key={index}
@@ -11,6 +14,7 @@ const ProductHeader = ({ productHeader }) => {
             style={{
               backgroundImage: `url(${img})`,
             }}
+            onClick={() => clickHandler(category)}
           >
             <Link to='shop'>
               <div>{name}</div>

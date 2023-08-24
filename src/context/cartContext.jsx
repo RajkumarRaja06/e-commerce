@@ -39,9 +39,21 @@ const CartProvider = ({ children }) => {
     toast.success('Successfully Item Decreased');
   };
 
+  const checkOut = () => {
+    dispatch({ type: 'CLEAR_CART' });
+    toast.success('Your Order Is Placed');
+  };
+
   return (
     <CartContext.Provider
-      value={{ ...state, clearCart, removeItem, increasedItem, decreasedItem }}
+      value={{
+        ...state,
+        clearCart,
+        removeItem,
+        increasedItem,
+        decreasedItem,
+        checkOut,
+      }}
     >
       {children}
     </CartContext.Provider>

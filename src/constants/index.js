@@ -80,17 +80,14 @@ import r9 from '../../public/assets/refrigerators/r9.webp';
 import r10 from '../../public/assets/refrigerators/r10.webp';
 
 const pagesDropdown = [
-  { name: 'Home', to: '' },
-  { name: 'Shop', to: 'shop' },
   { name: 'Product Details', to: 'product' },
   { name: 'Checkout', to: 'cart' },
-  { name: 'Contact', to: 'contact' },
 ];
 
 const productHeader = [
-  { name: "Men's", img: proHeader1, to: 'shop' },
-  { name: 'Accessories', img: proHeader2, to: 'shop' },
-  { name: "Women's", img: proHeader3, to: 'shop' },
+  { name: "Men's", img: proHeader1, to: 'shop', category: "men's" },
+  { name: 'Accessories', img: proHeader2, to: 'shop', category: 'accessories' },
+  { name: "Women's", img: proHeader3, to: 'shop', category: "women's" },
 ];
 
 const buttonCategories = ['all', "men's", 'accessories', "women's"];

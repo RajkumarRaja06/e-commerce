@@ -32,14 +32,12 @@ const shopReducer = (state, action) => {
       const womenArray = productData.filter((item) => {
         return item.categories === action.type;
       });
-      console.log(womenArray);
       return { state, products: womenArray };
 
     case "men's":
       const menArray = productData.filter((item) => {
         return item.categories === action.type;
       });
-      console.log(menArray);
       return { state, products: menArray };
 
     case 'accessories':
