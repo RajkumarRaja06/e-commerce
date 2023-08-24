@@ -14,13 +14,8 @@ const UserProvider = ({ children }) => {
     setAccessToken(userInfo);
   }, []);
 
-  const logOut = () => {
-    setAccessToken(null);
-    localStorage.clear();
-  };
-
   return (
-    <UserContext.Provider value={{ accessToken, setAccessToken, logOut }}>
+    <UserContext.Provider value={{ accessToken, setAccessToken }}>
       {children}
     </UserContext.Provider>
   );

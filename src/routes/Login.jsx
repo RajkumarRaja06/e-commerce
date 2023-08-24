@@ -7,11 +7,18 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { UserConsumer } from '../context/userContext';
 
+import img from '../../public/assets/user.png';
+
 const Login = () => {
   const { setAccessToken } = UserConsumer();
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+  const getUserName = (emailName) => {
+    const username = emailName.substring(0, emailName.indexOf('@'));
+    return username;
+  };
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -19,9 +26,19 @@ const Login = () => {
     await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        setAccessToken(user.accessToken);
-        localStorage.setItem('user', JSON.stringify(user.accessToken));
-        console.log();
+        console.log(user);
+        const { providerData } = user;
+
+        const userData = {
+          uid: Date.now(),
+          displayName: getUserName(providerData[0].email),
+          email: providerData[0].email,
+          photoURL: img,
+        };
+
+        localStorage.setItem('user', JSON.stringify(userData));
+        setAccessToken(JSON.parse(localStorage.getItem('user')));
+
         setEmail('');
         setPassword('');
         navigate('/');

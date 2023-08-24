@@ -17,6 +17,8 @@ import {
   Cart,
   SignUp,
   Login,
+  Profile,
+  LoginCredentials,
 } from './routes';
 
 const router = createBrowserRouter([
@@ -56,6 +58,14 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <Login />,
+      },
+      {
+        path: 'profile',
+        element: <Profile />,
+      },
+      {
+        path: 'loginCredentials',
+        element: <LoginCredentials />,
       },
     ],
   },

@@ -190,16 +190,17 @@ ul li div:hover {
   border-radius: 0.5rem;
   color: #f6463d;
   cursor: pointer;
-  text-decoration: underline;
 }
 
 .login-info:hover {
-  background-color: #232323;
+  background-color: #000;
+  color: #fff;
 }
 
 .login-info h5 {
   font-size: 1.2rem;
 }
+
 .nav-left-links-desktop {
   display: none;
 }

@@ -3,7 +3,7 @@ import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { ImCancelCircle } from 'react-icons/im';
-import { BiLogIn } from 'react-icons/bi';
+import { CgProfile } from 'react-icons/cg';
 import { LuUser } from 'react-icons/lu';
 import { FiChevronDown } from 'react-icons/fi';
 import { pagesDropdown } from '../constants';
@@ -26,7 +26,6 @@ const Navbar = () => {
     setIsMenu(!isMenu);
     setIsMenuList(!isMenuList);
   };
-
   return (
     <nav>
       <div className='nav-left'>
@@ -116,12 +115,14 @@ const Navbar = () => {
             </Link>
           </li>
         ) : (
-          <li className='login-info' onClick={logOut}>
-            <h5>Log out</h5>
-            <span>
-              <BiLogIn />
-            </span>
-          </li>
+          <Link to='profile'>
+            <li className='login-info'>
+              <h5>Profile</h5>
+              <span>
+                <CgProfile />
+              </span>
+            </li>
+          </Link>
         )}
       </ul>
     </nav>
