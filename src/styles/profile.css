@@ -71,11 +71,13 @@
   border: none;
   border-radius: 0.25rem;
   background-color: rgba(15, 23, 42, 0.3);
+  color: #fff;
   cursor: pointer;
 }
 
 .profile-data button:hover {
   background-color: #fff;
+  color: #000;
 }
 
 .profile-name input {
