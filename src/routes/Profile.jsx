@@ -29,8 +29,9 @@ const Profile = () => {
   } = UserConsumer();
 
   useEffect(() => {
+    fetchProfileData();
     userProfile();
-  }, [profileData]);
+  }, []);
 
   const navigate = useNavigate();
 

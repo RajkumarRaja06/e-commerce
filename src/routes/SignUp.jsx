@@ -9,8 +9,9 @@ import { setProfileData } from '../utils/firebaseFunction';
 
 import { storage, auth } from '../firebase';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-
+import { UserConsumer } from '../context/userContext';
 const SignUp = () => {
+  const { fetchProfileData } = UserConsumer();
   const navigate = useNavigate();
   const [userName, setUserName] = useState();
   const [email, setEmail] = useState();
@@ -83,8 +84,8 @@ const SignUp = () => {
           gender,
           image: imageURL,
         };
-        console.log(data);
         setProfileData(data);
+        fetchProfileData();
         onSubmit();
         clearFormInput();
       } else toast.warning('Enter valid phone number !');
