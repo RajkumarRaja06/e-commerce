@@ -1,24 +1,17 @@
 import '../styles/signUp.css';
-import { AiOutlineSend } from 'react-icons/ai';
-
+import { AiOutlineSend, AiFillDownCircle } from 'react-icons/ai';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { UserConsumer } from '../context/userContext';
 
-import img from '../../public/assets/user.png';
-
 const Login = () => {
   const { setAccessToken } = UserConsumer();
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-
-  const getUserName = (emailName) => {
-    const username = emailName.substring(0, emailName.indexOf('@'));
-    return username;
-  };
+  const [isTestBtn, setIsTestBtn] = useState(false);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -26,17 +19,9 @@ const Login = () => {
     await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
         const { providerData } = user;
 
-        const userData = {
-          uid: Date.now(),
-          displayName: getUserName(providerData[0].email),
-          email: providerData[0].email,
-          photoURL: img,
-        };
-
-        localStorage.setItem('user', JSON.stringify(userData));
+        localStorage.setItem('user', JSON.stringify(providerData[0]));
         setAccessToken(JSON.parse(localStorage.getItem('user')));
 
         setEmail('');
@@ -82,11 +67,37 @@ const Login = () => {
               <AiOutlineSend />
             </span>
           </button>
+
+          <div>
+            <button
+              type='submit'
+              className='btn connect'
+              onClick={() => setIsTestBtn(!isTestBtn)}
+            >
+              View Test Credentials
+              <span className='connect-icon'>
+                <AiFillDownCircle />
+              </span>
+            </button>
+            {isTestBtn && (
+              <div className='testCredentials'>
+                <div>
+                  <h5>Email :</h5>
+                  <p>shop@gmail.com</p>
+                </div>
+                <div>
+                  <h5>Password :</h5>
+                  <p>Rajshop123#</p>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
+
         <div className='already-acc'>
           Not account yet ?{'   '}
           <span className='already-acc-log'>
-            <NavLink to='/signUp'>Sign up</NavLink>
+            <NavLink to='/signUp'>Click here to Register</NavLink>
           </span>
         </div>
       </form>

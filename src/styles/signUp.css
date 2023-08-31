@@ -8,8 +8,8 @@
   justify-content: space-evenly;
   overflow: hidden;
   padding: 0 1rem;
-  margin-top: 7rem;
-  margin: auto;
+  margin: 0.75rem auto;
+  margin-bottom: 5rem;
 }
 
 .title-container {
@@ -66,8 +66,65 @@
   background-color: mintcream;
 }
 
+.signFrom-profilePic {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #e0e0e0;
+  justify-content: center;
+  color: #6d6a7c;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+.signFrom-gender,
+.image-url {
+  width: 100%;
+}
+
+.image-url {
+  text-align: center;
+}
+
+.signFrom-gender select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #e0e0e0;
+  color: #6d6a7c;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.image-url img {
+  width: 60%;
+  padding: 0.5rem;
+  border: 1px solid #e0e0e0;
+}
+
 .btn-container {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.testCredentials {
+  text-align: center;
+  background-color: #e9ecef;
+  padding: 0.75rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.testCredentials div {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.testCredentials p {
+  font-size: 0.95rem;
 }
 
 .connect {

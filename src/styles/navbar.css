@@ -135,9 +135,6 @@ ul li div:hover {
 .nav-right li a:hover {
   color: #232323;
 }
-.nav-right li:nth-child(1) {
-  border-left: none;
-}
 
 .nav-cart-logo-container {
   position: relative;
@@ -182,14 +179,18 @@ ul li div:hover {
 }
 
 .login-info {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #232323;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
   border-radius: 0.5rem;
-  color: #f6463d;
+  color: #232323;
   cursor: pointer;
+  margin: 0 0.25rem;
 }
 
 .login-info:hover {
@@ -198,6 +199,12 @@ ul li div:hover {
 }
 
 .login-info h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.login-info span {
+  margin-top: 5px;
   font-size: 1.2rem;
 }
 

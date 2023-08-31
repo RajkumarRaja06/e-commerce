@@ -7,7 +7,6 @@ import Cart from './Cart';
 import SignUp from './SignUp';
 import Login from './Login';
 import Profile from './Profile';
-import LoginCredentials from './LoginCredentials';
 
 export {
   Root,
@@ -19,5 +18,4 @@ export {
   SignUp,
   Login,
   Profile,
-  LoginCredentials,
 };

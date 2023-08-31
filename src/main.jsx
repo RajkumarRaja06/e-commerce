@@ -18,7 +18,6 @@ import {
   SignUp,
   Login,
   Profile,
-  LoginCredentials,
 } from './routes';
 
 const router = createBrowserRouter([
@@ -62,10 +61,6 @@ const router = createBrowserRouter([
       {
         path: 'profile',
         element: <Profile />,
-      },
-      {
-        path: 'loginCredentials',
-        element: <LoginCredentials />,
       },
     ],
   },
