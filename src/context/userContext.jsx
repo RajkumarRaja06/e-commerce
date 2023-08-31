@@ -87,7 +87,7 @@ const UserProvider = ({ children }) => {
 
   useEffect(() => {
     userProfile();
-  }, [profileData]);
+  }, [accessToken]);
 
   return (
     <UserContext.Provider

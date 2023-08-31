@@ -13,6 +13,7 @@ const Profile = () => {
     userName,
     setUserName,
     email,
+    setEmail,
     number,
     setNumber,
     gender,
@@ -21,6 +22,7 @@ const Profile = () => {
     setImageURL,
     getImageUrl,
     id,
+    setId,
     userProfile,
     profileData,
     fetchProfileData,
@@ -58,7 +60,17 @@ const Profile = () => {
   const logOut = () => {
     setAccessToken(null);
     localStorage.clear();
+    clearFormInput();
     navigate('/');
+  };
+
+  const clearFormInput = () => {
+    setId('');
+    setUserName('');
+    setEmail('');
+    setGender('');
+    setNumber('');
+    setImageURL('');
   };
 
   return (
