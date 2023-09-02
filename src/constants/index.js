@@ -85,9 +85,14 @@ const pagesDropdown = [
 ];
 
 const productHeader = [
-  { name: "Men's", img: proHeader1, to: 'shop', category: "men's" },
-  { name: 'Accessories', img: proHeader2, to: 'shop', category: 'accessories' },
-  { name: "Women's", img: proHeader3, to: 'shop', category: "women's" },
+  { name: "Men's", img: proHeader1, to: '/shop', category: "men's" },
+  {
+    name: 'Accessories',
+    img: proHeader2,
+    to: '/shop',
+    category: 'accessories',
+  },
+  { name: "Women's", img: proHeader3, to: '/shop', category: "women's" },
 ];
 
 const buttonCategories = ['all', "men's", 'accessories', "women's"];

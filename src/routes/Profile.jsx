@@ -4,12 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { doc, updateDoc } from 'firebase/firestore';
 import { db, auth } from '../firebase';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+import { signOut } from 'firebase/auth';
 
 const Profile = () => {
   const {
-    accessToken,
-    setAccessToken,
     userName,
     setUserName,
     email,
@@ -25,7 +24,9 @@ const Profile = () => {
     setId,
     userProfile,
     profileData,
+    setProfileData,
     fetchProfileData,
+    setAccessToken,
   } = UserConsumer();
 
   useEffect(() => {
@@ -59,8 +60,9 @@ const Profile = () => {
   };
 
   const logOut = () => {
+    signOut(auth);
+    setProfileData(null);
     setAccessToken(null);
-    localStorage.clear();
     clearFormInput();
     navigate('/');
   };
@@ -155,7 +157,6 @@ const Profile = () => {
         <button onClick={updateFunc}>Update Profile</button>
         <button onClick={logOut}>Logout</button>
       </div>
-      <ToastContainer />
     </section>
   );
 };

@@ -41,7 +41,7 @@ const CartProvider = ({ children }) => {
 
   const checkOut = () => {
     dispatch({ type: 'CLEAR_CART' });
-    toast.success('Your Order Is Placed');
+    toast.success('Your order as been placed');
   };
 
   return (

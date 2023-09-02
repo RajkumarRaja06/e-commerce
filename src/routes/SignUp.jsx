@@ -3,7 +3,7 @@ import { AiOutlineSend } from 'react-icons/ai';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { setProfileData } from '../utils/firebaseFunction';
 
@@ -104,7 +104,7 @@ const SignUp = () => {
   return (
     <div className='contact' id='contact'>
       <div className='title-container'>
-        <h2 className='title-name'>Sign in</h2>
+        <h2 className='title-name'>Sign Up</h2>
         <span className='title-subtitle'>Create a Shop Account !</span>
       </div>
       <form className='contact-form' onSubmit={formValidation}>
@@ -192,7 +192,6 @@ const SignUp = () => {
           </span>
         </div>
       </form>
-      <ToastContainer />
     </div>
   );
 };

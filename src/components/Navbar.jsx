@@ -11,9 +11,10 @@ import logo from '../../public/assets/shop.jpg';
 import { CartConsumer } from '../context/cartContext';
 import { useState } from 'react';
 import { UserConsumer } from '../context/userContext';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
-  const { accessToken, logOut } = UserConsumer();
+  const { accessToken } = UserConsumer();
   const { totalQuantity } = CartConsumer();
   const [isMenu, setIsMenu] = useState(false);
   const [isMenuList, setIsMenuList] = useState(false);
@@ -25,6 +26,10 @@ const Navbar = () => {
   const hideMenu = () => {
     setIsMenu(!isMenu);
     setIsMenuList(!isMenuList);
+  };
+
+  const showMsg = () => {
+    toast.warning('Please LogIn !');
   };
   return (
     <nav>
@@ -47,7 +52,7 @@ const Navbar = () => {
           <ul className='nav-left-links'>
             <li className='nav-shop-link'>
               <div onClick={() => hideMenu()}>
-                <Link to='shop'>Shop</Link>
+                <Link to='/shop'>Shop</Link>
               </div>
             </li>
             <li className='nav-pages-link'>
@@ -75,7 +80,7 @@ const Navbar = () => {
         <ul className='nav-left-links-desktop'>
           <li className='nav-shop-link'>
             <div>
-              <Link to='shop'>Shop</Link>
+              <Link to='/shop'>Shop</Link>
             </div>
           </li>
           <li className='nav-pages-link'>
@@ -101,7 +106,11 @@ const Navbar = () => {
 
       <ul className='nav-right'>
         <li>
-          <Link to='/cart' className='nav-cart-logo-container'>
+          <Link
+            to={accessToken && '/cart'}
+            onClick={!accessToken && showMsg}
+            className='nav-cart-logo-container'
+          >
             <span>
               <HiOutlineShoppingBag />
             </span>

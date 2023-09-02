@@ -16,7 +16,7 @@ const ProductHeader = ({ productHeader }) => {
             }}
             onClick={() => clickHandler(category)}
           >
-            <Link to='shop'>
+            <Link to='/shop'>
               <div>{name}</div>
             </Link>
           </div>

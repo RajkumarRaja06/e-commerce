@@ -3,11 +3,16 @@ import { TiHeartOutline } from 'react-icons/ti';
 import { AiOutlineEye } from 'react-icons/ai';
 import { TbShoppingCart } from 'react-icons/tb';
 import { CartConsumer } from '../../context/cartContext';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+import { UserConsumer } from '../../context/userContext';
 
 const SingleProduct = ({ data }) => {
   const { increasedItem } = CartConsumer();
+  const { accessToken } = UserConsumer();
+
+  const showMsg = () => {
+    toast.warning('Please LogIn !');
+  };
 
   return (
     <div className='product-container'>
@@ -25,7 +30,7 @@ const SingleProduct = ({ data }) => {
             </div>
 
             <div className='singleProduct-addCart-btn'>
-              <button onClick={() => increasedItem(id)}>
+              <button onClick={accessToken ? () => increasedItem(id) : showMsg}>
                 <span className='singleProduct-cart-icon'>
                   <TbShoppingCart />
                 </span>
@@ -37,7 +42,6 @@ const SingleProduct = ({ data }) => {
           </div>
         );
       })}
-      <ToastContainer />
     </div>
   );
 };

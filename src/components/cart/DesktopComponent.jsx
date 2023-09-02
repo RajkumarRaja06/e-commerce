@@ -4,11 +4,17 @@ import { HiPlus, HiMinus } from 'react-icons/hi';
 import CartTotals from './CartTotals';
 import EmptyCart from './EmptyCart';
 import { CartConsumer } from '../../context/cartContext';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
+import { UserConsumer } from '../../context/userContext';
 const DesktopComponent = () => {
   const { cart, removeItem, increasedItem, decreasedItem } = CartConsumer();
+
+  const { accessToken } = UserConsumer();
+
+  const showMsg = () => {
+    toast.warning('Please LogIn !');
+  };
   return (
     <div className='desktop-cart-container'>
       <div className='desktop-cart'>
@@ -42,14 +48,14 @@ const DesktopComponent = () => {
                   <button
                     type='button'
                     className='desktop-cart-quantity-plus-btn'
-                    onClick={() => increasedItem(id)}
+                    onClick={accessToken ? () => increasedItem(id) : showMsg}
                   >
                     <HiPlus />
                   </button>
                   <button
                     type='button'
                     className='desktop-cart-quantity-minus-btn'
-                    onClick={() => decreasedItem(id)}
+                    onClick={accessToken ? () => decreasedItem(id) : showMsg}
                   >
                     <HiMinus />
                   </button>
@@ -64,7 +70,6 @@ const DesktopComponent = () => {
         {cart.length > 0 && <EmptyCart />}
       </div>
       <CartTotals />
-      <ToastContainer />
     </div>
   );
 };

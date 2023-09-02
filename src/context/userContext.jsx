@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
-import { storage } from '../firebase';
+import { storage, auth } from '../firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 import { getProfileData } from '../utils/firebaseFunction';
@@ -18,11 +19,6 @@ const UserProvider = ({ children }) => {
   const [number, setNumber] = useState();
   const [gender, setGender] = useState();
   const [imageURL, setImageURL] = useState();
-
-  const userInfo =
-    localStorage.getItem('user') === 'undefined'
-      ? localStorage.clear()
-      : JSON.parse(localStorage.getItem('user'));
 
   const getImageUrl = (event) => {
     const imageFile = event.target.files[0];
@@ -67,9 +63,7 @@ const UserProvider = ({ children }) => {
   };
 
   const userProfile = () => {
-    setEmail(userInfo && userInfo.email);
-    const filterUser =
-      profileData && profileData.find((item) => item.email === email);
+    const filterUser = profileData.find((item) => item.email === email);
     if (filterUser) {
       setId(filterUser.id);
       setEmail(filterUser.email);
@@ -81,19 +75,26 @@ const UserProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    setAccessToken(userInfo);
     fetchProfileData();
   }, []);
 
   useEffect(() => {
-    userProfile();
-  }, [accessToken]);
+    let subscriber = onAuthStateChanged(auth, (user) => {
+      console.log(auth.currentUser); //returns null now
+      if (user) {
+        setAccessToken(user.providerData[0]);
+        setEmail(user.providerData[0].email);
+      }
+    });
+
+    return subscriber;
+  }, []);
 
   return (
     <UserContext.Provider
       value={{
-        accessToken,
-        setAccessToken,
+        profileData,
+        setProfileData,
         userName,
         setUserName,
         email,
@@ -110,6 +111,8 @@ const UserProvider = ({ children }) => {
         userProfile,
         profileData,
         fetchProfileData,
+        accessToken,
+        setAccessToken,
       }}
     >
       {children}
