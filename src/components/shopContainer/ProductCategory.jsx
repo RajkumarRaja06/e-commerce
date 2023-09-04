@@ -9,17 +9,19 @@ const ProductCategory = () => {
 
   return (
     <div className='productCategory'>
-      <SortProduct shortDropdown={shortDropdown} />
-      <div className='nav-search-container'>
-        <span className='nav-search-icon'>
-          <LuSearch />
-        </span>
-        <input
-          type='search'
-          className='nav-search-input'
-          placeholder='Type for search'
-          onChange={(e) => filter(e)}
-        />
+      <div className='productCategory-top'>
+        <div className='nav-search-container'>
+          <span className='nav-search-icon'>
+            <LuSearch />
+          </span>
+          <input
+            type='search'
+            className='nav-search-input'
+            placeholder='Type for search'
+            onChange={(e) => filter(e)}
+          />
+        </div>
+        <SortProduct shortDropdown={shortDropdown} />
       </div>
       <SingleProduct data={products} />
     </div>
